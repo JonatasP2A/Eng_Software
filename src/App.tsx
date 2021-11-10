@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Card from './components/Card';
 
 function App() {
+  const [actived, setActived] = useState(false);
+
+  const toggleState = () => {
+    setActived((prevState) => !prevState);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -11,15 +17,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <Card />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Reac
-        </a>
+        <Card name="Leo" actived={actived} onClick={toggleState} />
       </header>
     </div>
   );

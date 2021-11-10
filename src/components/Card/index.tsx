@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-const Card: React.FC = () => {
-  const [actived, setActived] = useState(false);
+interface CardProps {
+  name?: string;
+  actived: boolean;
+  onClick: () => void;
+}
+
+const Card: React.FC<CardProps> = ({ name, actived, onClick }) => {
   const [values, setValues] = useState<string[]>([]);
 
   const umafuncao = (arg1: string) => {
     return <h1>Texto {arg1}</h1>;
-  };
-
-  const toggleState = () => {
-    setActived((prevState) => !prevState);
   };
 
   useEffect(() => {
@@ -21,7 +22,8 @@ const Card: React.FC = () => {
       {values.map((value, index) => (
         <React.Fragment key={index}>{umafuncao(value)}</React.Fragment>
       ))}
-      <button onClick={toggleState}>alterar estado</button>
+      {name && <h1>{name}</h1>}
+      <button onClick={onClick}>alterar estado</button>
     </div>
   );
 };
