@@ -1,0 +1,29 @@
+.modal_container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.modal_content{
+    max-width: 50%;
+    background-image: linear-gradient(45deg, rgb(161, 68, 68), rgb(238, 93, 93));
+    border:solid 1px;
+    border-radius:20px;
+    /* box-shadow: 3px 3px 5px 5px black; */
+}
+
+.modal_img { 
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 3%
+}
+
+.modal_form { 
+    padding-left: 5%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+}
