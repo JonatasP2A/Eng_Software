@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Card from './components/Card';
 import GetPlayersModal from './components/PlayersModal';
 
 function App() {
 
+  const [isModalVisible, setModalVisible] = useState(true);
+
+  // const onReceivedUsers = (currentUsers) => { 
+
+  // }
+
   return (
     <div className="App">
-     <GetPlayersModal isVisible={true} onReceivedUsers = {() => {}}/>
+     <GetPlayersModal isVisible={isModalVisible} onReceivedUsers={() => {}}/>
     </div>
   );
 }

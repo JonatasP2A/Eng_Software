@@ -6,13 +6,14 @@ interface ContainerProps {
   isFilled: boolean;
   isErrored: boolean;
 }
+//TODO:Descobrir como mudar a cor do text nesse styled-components
 
 export const Container = styled.div<ContainerProps>`
   background: #232129;
   border-radius: 10px;
   border: 2px solid #232129;
-  padding: 16px;
-  width: 100%;
+  padding: 10px;
+  width: 95%;
   color: #666360;
 
   display: flex;
@@ -32,14 +33,14 @@ export const Container = styled.div<ContainerProps>`
   ${props =>
     props.isFocused &&
     css`
-      color: #ff9000;
-      border-color: #ff9000;
+      color: #ffffff;
+      border-color: #ffffff;
     `}
 
   ${props =>
     props.isFilled &&
     css`
-      color: #ff9000;
+      color: #ffffff;
     `}
 
   input {
