@@ -21,8 +21,7 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
-  console.log("Recebi esse aqui: ", name);
-  const { fieldName, defaultValue, error, registerField } = useField("Teste");
+  const { fieldName, defaultValue, error, registerField } = useField("Test");
 
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
@@ -34,13 +33,13 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
     setIsFilled(!!inputRef.current?.value);
   }, []);
 
-  // useEffect(() => {
-  //   registerField({
-  //     name: fieldName,
-  //     ref: inputRef.current,
-  //     path: 'value',
-  //   });
-  // }, [fieldName, registerField]);
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      ref: inputRef.current,
+      path: 'value',
+    });
+  }, [fieldName, registerField]);
 
   return (
     <Container isErrored={!!error} isFilled={isFilled} isFocused={isFocused}>

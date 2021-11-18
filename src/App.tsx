@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import './App.css';
-import GetPlayersModal from './components/PlayersModal';
+import GetPlayersModal, { PlayerProps } from './components/PlayersModal';
 
 function App() {
 
   const [isModalVisible, setModalVisible] = useState(true);
 
-  // const onReceivedUsers = (currentUsers) => { 
-
-  // }
+  const onReceivedUsers = (currentUsers: PlayerProps[]) => { 
+    console.log("Cheguei aquiiiii: ", currentUsers);
+  }
 
   return (
     <div className="App">
-     <GetPlayersModal isVisible={isModalVisible} onReceivedUsers={() => {}}/>
+     <GetPlayersModal isVisible={isModalVisible} onReceivedUsers={onReceivedUsers}/>
     </div>
   );
 }
