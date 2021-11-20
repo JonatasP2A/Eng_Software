@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { shade } from 'polished';
 
 export const Container = styled.button`
 box-shadow:inset 0px 1px 0px 0px #f7c5c0;

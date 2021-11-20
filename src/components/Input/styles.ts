@@ -6,7 +6,6 @@ interface ContainerProps {
   isFilled: boolean;
   isErrored: boolean;
 }
-//TODO:Descobrir como mudar a cor do text nesse styled-components
 
 export const Container = styled.div<ContainerProps>`
   background: #232129;

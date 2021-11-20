@@ -6,7 +6,7 @@ function App() {
 
   const [isModalVisible, setModalVisible] = useState(true);
 
-  const onReceivedUsers = (currentUsers: PlayerProps[]) => { 
+  const onReceivedUsers = (currentUsers: PlayerProps) => { 
     console.log("Cheguei aquiiiii: ", currentUsers);
   }
 
