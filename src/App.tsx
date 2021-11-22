@@ -7,12 +7,12 @@ function App() {
   const [isModalVisible, setModalVisible] = useState(true);
 
   const onReceivedUsers = (currentUsers: PlayerProps) => { 
-    console.log("Cheguei aquiiiii: ", currentUsers);
+    setModalVisible(false);
   }
 
   return (
     <div className="App">
-     <GetPlayersModal isVisible={isModalVisible} onReceivedUsers={onReceivedUsers}/>
+     <GetPlayersModal visible={isModalVisible} onReceivedUsers={onReceivedUsers}/>
     </div>
   );
 }

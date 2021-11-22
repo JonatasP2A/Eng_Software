@@ -1,15 +1,15 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-export const Modal = styled.button<{ firstColor: string, secondColor: string }>`
+export const Modal = styled.button<{ firstColor: string, secondColor: string, visible: boolean}>`
+    display: ${props => props.visible? "inline" : "none"};
     position: fixed;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    transition: all 2s;
-
-
     background-image: linear-gradient(45deg, ${props => props.firstColor ? props.firstColor : 'rgb(161, 68, 68)'}, ${props => props.secondColor ? props.secondColor : 'rgb(161, 68, 68)'});
+    transition: background-image 2s;//TODO: Transição não funciona. This is sad :(
+    transition: display 2s;//TODO: Transição não funciona. This is sad :(
     border:solid 1px;
     border-radius:20px;
 

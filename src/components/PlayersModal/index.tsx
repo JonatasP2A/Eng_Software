@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../../assets/images/monopoly-logo.png';
-import Input from '../Input';
+import Input, {ErrorProps} from '../Input';
 import Button from '../Button';
 import { FiUser } from 'react-icons/fi';
 import { Form } from '@unform/web';
@@ -11,7 +11,7 @@ import { RED_COLOR } from '../../constants/colors';
 
 
 interface ModalProps {
-  isVisible: boolean;
+  visible: boolean;
   onReceivedUsers: (value: PlayerProps) => void;
 }
 export interface PlayerProps {
@@ -24,19 +24,28 @@ const playerObj = {
   playerColor: RED_COLOR
 }
 
+const inputError = {
+  isError: false,
+  errorText: ''
+}
 
-const GetPlayersModal: React.FC<ModalProps> = ({ isVisible, onReceivedUsers }) => {
+
+const GetPlayersModal: React.FC<ModalProps> = ({ visible, onReceivedUsers }) => {
   const [currentPlayer, setCurrentPlayer] = useState<PlayerProps>(playerObj);
   const [modalBackgroundColor, setModalBackgroundColor] = useState<BackgroundColors>(RED_COLOR);
+  const [error, setError] = useState<ErrorProps>(inputError);
 
   const validateInputs = () => {
+    if(currentPlayer.name.length <= 0){
+      setError({isError:true, errorText: "Digite um texto válido"});
+      return;
+    }
     onReceivedUsers(currentPlayer);
   }
 
   const handleChange = (value: string) => {
     const atualizedPlayers = ({ ...currentPlayer, name: value })
 
-    console.log("atualizedPlayers::::::", atualizedPlayers);
     setCurrentPlayer(atualizedPlayers);
   }
 
@@ -46,13 +55,13 @@ const GetPlayersModal: React.FC<ModalProps> = ({ isVisible, onReceivedUsers }) =
   })
 
   return (
-    <Modal firstColor={modalBackgroundColor.firstColor} secondColor={modalBackgroundColor.secondColor} >
+    <Modal firstColor={modalBackgroundColor.firstColor} secondColor={modalBackgroundColor.secondColor} visible={visible} >
       <div className="modal_img">
         <img src={logo} alt="Monopoly Logo" style={{ width: '60%' }} />
       </div>
       <div className="modal_form">
         <Form onSubmit={() => { }} >
-          <Input onChange={(event) => handleChange(event.target.value)} icon={FiUser} placeholder="Jogador" name="Jogador" />
+          <Input onChange={(event) => handleChange(event.target.value)} icon={FiUser} placeholder="Jogador" name="Jogador" error={error} />
           <ColorSelector onColorSelected={(color) => setBackgroundColor(color)}/>
           <div className="btn">
             <Button onClick={validateInputs}>Iniciar</Button>
