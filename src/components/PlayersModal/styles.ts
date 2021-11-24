@@ -1,7 +1,18 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Modal = styled.button<{ firstColor: string, secondColor: string, visible: boolean}>`
-    display: ${props => props.visible? "inline" : "none"};
+export const Modal = styled.div<{ firstColor: string, secondColor: string, visible: boolean }>`
+    text-align: center;
+    ${props => props.visible ? 
+    css`
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 2s linear;
+    `: 
+    css`
+        transition: visibility 0s 2s, opacity 2s linear;
+        visibility: hidden;
+        opacity: 0;
+    `};
     position: fixed;
     top: 50%;
     left: 50%;
@@ -12,6 +23,12 @@ export const Modal = styled.button<{ firstColor: string, secondColor: string, vi
     transition: display 2s;//TODO: Transição não funciona. This is sad :(
     border:solid 1px;
     border-radius:20px;
+
+    .hidden {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s 2s, opacity 2s linear;
+    }
 
     .modal_img { 
         width: 100%;
