@@ -1,6 +1,12 @@
 import styled, { css } from 'styled-components';
 
-export const Modal = styled.div<{ firstColor: string, secondColor: string, visible: boolean }>`
+interface ModalProps{
+    firstColor: string,
+    secondColor: string,
+    visible: boolean,
+}
+
+export const Modal = styled.div<ModalProps>`
     text-align: center;
     ${props => props.visible ? 
     css`

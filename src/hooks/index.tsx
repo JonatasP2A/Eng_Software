@@ -1,15 +1,11 @@
-import React, {createContext} from 'react';
-import { __useUserData } from './user';
-
-export const StoreContext = createContext({});
+import React from 'react';
+import { UsersProvider } from './user';
 
 const AppProvider: React.FC = ({ children }) => {
   return (
-    <StoreContext.Provider value = {{
-      user: __useUserData(),
-    }}>
+    <UsersProvider>
       {children}
-    </StoreContext.Provider>
+    </UsersProvider>
   );
 };
 

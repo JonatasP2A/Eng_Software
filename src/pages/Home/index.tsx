@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import GetPlayersModal, { PlayerProps } from '../../components/PlayersModal';
-import { useUserContext } from '../../hooks/user';
+import GetPlayersModal from '../../components/PlayersModal';
+import { User, useUsers } from '../../hooks/user';
 import { HomeCF } from './styles';
 
 const Home: React.FC = () => {
 
     const [isModalVisible, setModalVisible] = useState(true);
-    const storeUser = useUserContext();
+    const { users, addUser } = useUsers();
 
-    const onReceivedUsers = (currentUsers: PlayerProps) => { 
+    const onReceivedUsers = (currentUser: User) => { 
+      addUser(currentUser);
       setModalVisible(false);
     }
 
     useEffect(() => {
-      console.log("Dado vindo do store", storeUser);
-    } , [storeUser]);
+      console.log("Dado vindo do store", users);
+    } , [users]);
   
     return (
       <HomeCF>
