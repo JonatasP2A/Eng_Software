@@ -8,20 +8,17 @@ import { ColorSelector } from './Components';
 import { BackgroundColors } from './Components/ColorSelector';
 import { Modal } from './styles';
 import { RED_COLOR } from '../../constants/colors';
-
+import { User } from '../../hooks/user';
 
 interface ModalProps {
   visible: boolean;
-  onReceivedUsers: (value: PlayerProps) => void;
-}
-export interface PlayerProps {
-  name: string,
-  playerColor: BackgroundColors
+  onReceivedUsers: (value: User) => void;
 }
 
 const playerObj = {
+  id: 0,
   name: '',
-  playerColor: RED_COLOR
+  color: RED_COLOR
 }
 
 const inputError = {
@@ -31,7 +28,7 @@ const inputError = {
 
 
 const GetPlayersModal: React.FC<ModalProps> = ({ visible, onReceivedUsers }) => {
-  const [currentPlayer, setCurrentPlayer] = useState<PlayerProps>(playerObj);
+  const [currentPlayer, setCurrentPlayer] = useState<User>(playerObj);
   const [modalBackgroundColor, setModalBackgroundColor] = useState<BackgroundColors>(RED_COLOR);
   const [error, setError] = useState<ErrorProps>(inputError);
 
@@ -51,7 +48,7 @@ const GetPlayersModal: React.FC<ModalProps> = ({ visible, onReceivedUsers }) => 
 
   const setBackgroundColor = ((color:BackgroundColors) => {
     setModalBackgroundColor(color);
-    setCurrentPlayer({...currentPlayer, playerColor: color})
+    setCurrentPlayer({...currentPlayer, color})
   })
 
   return (

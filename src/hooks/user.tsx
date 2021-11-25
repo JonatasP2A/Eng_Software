@@ -6,7 +6,6 @@ export interface User{
   name: string;
   color: BackgroundColors
 }
-//Comentário
 interface IUserContextData {
   users: User[];
   addUser: (newUser: User) => void;

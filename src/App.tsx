@@ -1,19 +1,13 @@
-import React, { useState } from 'react';
-import './App.css';
-import GetPlayersModal, { PlayerProps } from './components/PlayersModal';
+import React from 'react';
+import AppProvider from './hooks';
+import Home from './pages/Home/index';
 
 function App() {
 
-  const [isModalVisible, setModalVisible] = useState(true);
-
-  const onReceivedUsers = (currentUsers: PlayerProps) => { 
-    setModalVisible(false);
-  }
-
   return (
-    <div className="App">
-     <GetPlayersModal visible={isModalVisible} onReceivedUsers={onReceivedUsers}/>
-    </div>
+    <AppProvider>
+      <Home />
+    </AppProvider>
   );
 }
 
