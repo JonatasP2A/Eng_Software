@@ -1,8 +1,8 @@
 
 export const RED_COLOR = {
     trueTone: "#cc0000",
-    firstColor: '#742121',
-    secondColor: '#d83838',
+    firstColor: '#bd2f2f',
+    secondColor: '#9c2b2b',
 }
 
 export const BLUE_COLOR = {
@@ -27,4 +27,9 @@ export const WHITE_COLOR = {
     trueTone: "#d8d8d8",
     firstColor: '#b4b4b4',
     secondColor: '#777777',
+}
+
+export const USER_TYPES = {
+    CURRENT_USER: 0,
+    BOT: 1
 }

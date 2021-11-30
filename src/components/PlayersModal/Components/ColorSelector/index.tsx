@@ -16,9 +16,9 @@ export const ColorSelector: React.FC<ColorSelectorProps> = ({ onColorSelected, .
 
     return (
         <>
-            <Container type="button" {...rest} backgroundColor={RED_COLOR.trueTone} onClick={() => onColorSelected(RED_COLOR)}/>
             <Container type="button" {...rest} backgroundColor={BLUE_COLOR.trueTone} onClick={() => onColorSelected(BLUE_COLOR)}/>
             <Container type="button" {...rest} backgroundColor={YELLOW_COLOR.trueTone} onClick={() => onColorSelected(YELLOW_COLOR)}/>
+            <Container type="button" {...rest} backgroundColor={RED_COLOR.trueTone} onClick={() => onColorSelected(RED_COLOR)}/>
             <Container type="button" {...rest} backgroundColor={GREEN_COLOR.trueTone} onClick={() => onColorSelected(GREEN_COLOR)}/>
             <Container type="button" {...rest} backgroundColor={WHITE_COLOR.trueTone} onClick={() => onColorSelected(WHITE_COLOR)}/>
         </>

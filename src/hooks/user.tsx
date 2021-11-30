@@ -1,16 +1,20 @@
 import React, { createContext, useState, useContext } from 'react';
 import { BackgroundColors } from '../components/PlayersModal/Components/ColorSelector';
-
+import { USER_TYPES } from '../constants/colors';
 export interface User{
   id: number;
   name: string;
-  color: BackgroundColors
+  color: BackgroundColors;
+  cash: number;
+  type: number
 }
+
 interface IUserContextData {
   users: User[];
   addUser: (newUser: User) => void;
   removeUser: (id: number) => void;
   getUser: (id: number) => User | undefined;
+  getCurrentUser: () => User | undefined;
 }
 
 export const UsersContext = createContext({} as IUserContextData);
@@ -30,10 +34,14 @@ const UsersProvider:React.FC = ({ children }) => {
     return users.find(user => user.id === id);
   };
 
+  const getCurrentUser = () => {
+    return users.find(user => user.type === USER_TYPES.CURRENT_USER)
+  }
+
 
   return (
     <UsersContext.Provider
-      value={{ users, addUser, removeUser, getUser }}
+      value={{ users, addUser, removeUser, getUser, getCurrentUser }}
     >
       {children}
     </UsersContext.Provider>

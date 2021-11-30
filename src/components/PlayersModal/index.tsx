@@ -7,7 +7,7 @@ import { Form } from '@unform/web';
 import { ColorSelector } from './Components';
 import { BackgroundColors } from './Components/ColorSelector';
 import { Modal } from './styles';
-import { RED_COLOR } from '../../constants/colors';
+import { RED_COLOR, USER_TYPES } from '../../constants/colors';
 import { User } from '../../hooks/user';
 
 interface ModalProps {
@@ -18,7 +18,9 @@ interface ModalProps {
 const playerObj = {
   id: 0,
   name: '',
-  color: RED_COLOR
+  color: RED_COLOR,
+  cash: 2000,
+  type: USER_TYPES.CURRENT_USER
 }
 
 const inputError = {
