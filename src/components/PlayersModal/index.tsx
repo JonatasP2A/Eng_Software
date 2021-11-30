@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from '../../assets/images/monopoly-logo.png';
+import logo from '../../assets/images/logo.png';
 import Input, {ErrorProps} from '../Input';
 import Button from '../Button';
 import { FiUser } from 'react-icons/fi';
