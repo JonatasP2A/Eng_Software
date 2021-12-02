@@ -8,10 +8,10 @@ import '../../App.css';
 const Home: React.FC = () => {
 
   const [isModalVisible, setModalVisible] = useState(true);
-  const { addUser } = useUsers();
+  const { addUsers } = useUsers();
 
-  const onReceivedUsers = (currentUser: User) => {
-    addUser(currentUser);
+  const onReceivedUsers = (currentUser: User, opponentsNumber: number) => {
+    addUsers(currentUser, opponentsNumber);
     setModalVisible(false);
   }
 
