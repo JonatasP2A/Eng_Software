@@ -15,10 +15,11 @@ export const Container =  styled.div<{}>`
 
   .title{
     font-size: 12px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif; //TODO: Essa fonte tá horrível
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    //TODO: Essa fonte tá horrível
     letter-spacing: 0.2px;
     color: #ffffff;
     font-weight: 600;
+    margin-right: 5px;
   }
 
 `;

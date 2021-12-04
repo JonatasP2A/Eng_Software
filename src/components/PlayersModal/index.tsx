@@ -7,7 +7,7 @@ import { Form } from '@unform/web';
 import { ColorSelector, OpponentSelector } from './Components';
 import { BackgroundColors } from './Components/ColorSelector';
 import { Modal } from './styles';
-import { RED_COLOR, USER_TYPES } from '../../constants/colors';
+import { RED_COLOR, USER_TYPES } from '../../constants';
 import { User } from '../../hooks/user';
 
 interface ModalProps {
@@ -31,7 +31,7 @@ const inputError = {
 
 const GetPlayersModal: React.FC<ModalProps> = ({ visible, onReceivedUsers }) => {
   const [currentPlayer, setCurrentPlayer] = useState<User>(playerObj);
-  const [opponentsNumber, setOpponentsNumber] = useState<number>(0);
+  const [opponentsNumber, setOpponentsNumber] = useState<number>(1);
   const [modalBackgroundColor, setModalBackgroundColor] = useState<BackgroundColors>(RED_COLOR);
   const [error, setError] = useState<ErrorProps>(inputError);
 

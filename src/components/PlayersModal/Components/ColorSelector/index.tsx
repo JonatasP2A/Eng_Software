@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from './styles';
-import { RED_COLOR, GREEN_COLOR, YELLOW_COLOR, BLUE_COLOR, WHITE_COLOR } from '../../../../constants/colors';
+import { RED_COLOR, GREEN_COLOR, YELLOW_COLOR, BLUE_COLOR, WHITE_COLOR } from '../../../../constants';
 
 export interface BackgroundColors{
     trueTone: string,

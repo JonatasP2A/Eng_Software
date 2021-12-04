@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext } from 'react';
 import { BackgroundColors } from '../components/PlayersModal/Components/ColorSelector';
-import { USER_TYPES, COLORS, OPPONENTS } from '../constants/colors';
+import { USER_TYPES, COLORS, OPPONENTS } from '../constants';
 export interface User{
   id: number;
   name: string;
@@ -15,6 +15,8 @@ interface IUserContextData {
   removeUser: (id: number) => void;
   getUser: (id: number) => User | undefined;
   getCurrentUser: () => User | undefined;
+  getUsers: () => User[];
+  getOpponents: () => User[];
 }
 
 export const UsersContext = createContext({} as IUserContextData);
@@ -38,6 +40,15 @@ const UsersProvider:React.FC = ({ children }) => {
     return users.find(user => user.type === USER_TYPES.CURRENT_USER)
   }
 
+  const getOpponents = () => {
+    console.log("Estou mandando esse usuários aqui: ", users);
+    return users.filter(user => user.type === USER_TYPES.BOT)
+  }
+
+  const getUsers = () => {
+    return users;
+  };
+
   const generateOpponents = (numberOfOpponents: number, playerUser: User) => {
      const response = [playerUser];
      const availableColors = COLORS;
@@ -46,7 +57,7 @@ const UsersProvider:React.FC = ({ children }) => {
         availableColors.splice(availableColors.indexOf(user.color), 1);
        }
      });
-
+     console.log("Numero de oponents: ", numberOfOpponents);
      for(let i = 0; i < numberOfOpponents; i++){
         const currentOpponent = OPPONENTS[i];
         currentOpponent.color = availableColors[0];
@@ -60,7 +71,7 @@ const UsersProvider:React.FC = ({ children }) => {
 
   return (
     <UsersContext.Provider
-      value={{ users, addUsers, removeUser, getUser, getCurrentUser }}
+      value={{ users, addUsers, removeUser, getUser, getCurrentUser, getUsers, getOpponents }}
     >
       {children}
     </UsersContext.Provider>

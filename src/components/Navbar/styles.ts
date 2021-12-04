@@ -14,6 +14,14 @@ export const NavbarCF = styled.div<NavbarProps>`
     flex-direction: row;
     display: flex;
     justify-content: space-between;
+    margin: 10px;
+    border-radius: 10px;
+    
+    //TOdo: Não sei se curti essa borda e essa nav flutuante. Checar com o pessoal.
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
 
     .user_infos {
         flex-direction: row;
@@ -23,9 +31,7 @@ export const NavbarCF = styled.div<NavbarProps>`
 
     .user_title {
         font-size: 20px;
-     
-        font-family: 'Courier New', Courier, monospace;
+        font-family: 'Courier New', Courier, monospace; //Essa fonte tá bem ruim
         color: white;
     }
-
 `;
