@@ -18,7 +18,7 @@ export const UsersInfos: React.FC<UsersInfosProps> = ({ currentUser, opponents, 
         <Container firstColor={firstColor} secondColor={secondColor}>
             <div className="user_infos">
                 <div><FaUserCircle style={{ height: 40, width: 40, color: '#fff', marginRight: 5 }} /></div>
-                <p className="user_title">{currentUser?.name}</p>
+                <p className="title">{currentUser?.name}</p>
                 <div className="opponents_infos">
                     {opponents.map((opponent, index) => (
                         <div key={index}>

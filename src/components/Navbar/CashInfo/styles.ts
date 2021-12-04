@@ -14,9 +14,10 @@ export const CashCF = styled.div<{}>`
         transform: scale(1.1);
     }
 
-    .user_title {
+    .title {
         font-size: 20px;
         font-family: 'Courier New', Courier, monospace; //Essa fonte tá bem ruim
         color: white;
+        letter-spacing: 2px;
     }
 `;

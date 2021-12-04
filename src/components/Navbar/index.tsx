@@ -4,6 +4,7 @@ import { NavbarCF } from './styles';
 import logo from '../../assets/images/logo.png';
 import { UsersInfos } from './UsersInfos';
 import { CashInfo } from './CashInfo';
+import { Dice } from './Dice';
 
 const Navbar: React.FC = () => {
 
@@ -14,9 +15,10 @@ const Navbar: React.FC = () => {
   return(
       <NavbarCF firstColor={getCurrentUser()?.color.firstColor} secondColor={getCurrentUser()?.color.secondColor} >
         <div>
-          <img src={logo} alt="Monopoly Logo" style={{ height: '90%'}} />
+          <img src={logo} alt="Monopoly Logo" style={{ height: '60px'}} />
         </div>
-        <div className="user_infos">
+        <div className="infos">
+          <Dice firstColor={getCurrentUser()?.color.firstColor} secondColor={getCurrentUser()?.color.secondColor}/>
           <UsersInfos currentUser={getCurrentUser()} opponents={getOpponents()} firstColor={getCurrentUser()?.color.firstColor} secondColor={getCurrentUser()?.color.secondColor}/>
           <CashInfo cash={getCurrentUser()?.cash}/>
         </div>

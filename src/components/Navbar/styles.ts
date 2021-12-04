@@ -23,15 +23,11 @@ export const NavbarCF = styled.div<NavbarProps>`
     border-style: solid;
     border-color: white;
 
-    .user_infos {
+
+
+    .infos {
         flex-direction: row;
         display: flex;
         align-items: center;
-    }
-
-    .user_title {
-        font-size: 20px;
-        font-family: 'Courier New', Courier, monospace; //Essa fonte tá bem ruim
-        color: white;
     }
 `;
