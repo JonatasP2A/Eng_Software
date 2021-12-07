@@ -50,7 +50,7 @@ export const Container = styled.div<UsersInfosFCProps>`
   .user_infos:hover .opponents_infos{
       display: initial;
       animation: fade-in 0.5s;
-      z-index: 10;
+      z-index: 999;
   }
 
   .user_infos:not(:hover) .opponents_infos.did-fade-in{

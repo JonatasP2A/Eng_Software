@@ -20,7 +20,7 @@ const Home: React.FC = () => {
       {isModalVisible ? <GetPlayersModal visible={isModalVisible} onReceivedUsers={onReceivedUsers} /> :
         <>
           <Navbar />
-          <div className="table">
+          {/* <div className="table">
             <div className="board">
               <div className="center">
                 <div className="community-chest-deck">
@@ -198,8 +198,8 @@ const Home: React.FC = () => {
 
                 <Place backgroundColor="dark-blue" name="Boardwalk" price={400} />
               </div>
-            </div>
-          </div>
+            </div> 
+          </div>*/}
         </>
       }
     </HomeCF>

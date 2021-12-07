@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-interface DiceFCProps{
-    firstColor: string | undefined,
-    secondColor: string | undefined,
+interface DiceFCProps {
+  firstColor: string | undefined,
+  secondColor: string | undefined,
 }
 
 export const DiceCF = styled.div<DiceFCProps>`
@@ -32,8 +32,8 @@ export const DiceCF = styled.div<DiceFCProps>`
         padding: 8px;
         border-radius: 8px;
         top: 80px;
-        right: -250px;
-        display: none;
+        /* right: -250px; */
+        display: initial;
         z-index: 1;
         width: 350px;
 
@@ -41,19 +41,31 @@ export const DiceCF = styled.div<DiceFCProps>`
         box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
         border-width: 2px;
         border-style: solid;
-        border-color: white
+        border-color: white;
+
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        -moz-transition: opacity 1s ease-in-out;
+        -webkit-transition: opacity 1s ease-in-out;
+
+        transition-delay: 0.5s;
+        transition-property: opacity;
     }
 
     &:hover .play_dice{
-      display: initial;
-      animation: fade-in 0.5s;
-      z-index: 10;
+      opacity: 1.0;
+      transition: opacity .55s ease-in-out;
+      -moz-transition: opacity .55s ease-in-out;
+      -webkit-transition: opacity .55s ease-in-out;
     }
 
-    &:not(:hover) .play_dice.did-fade-in{
-      display: initial;
-      animation: fade-out 0.5s;
+    .dice_value{
+        font-size: 200px;
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
     }
+
 
     @keyframes fade-in {
     from {
