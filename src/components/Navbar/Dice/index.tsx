@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FaDice } from 'react-icons/fa';
 import { DiceCF } from './styles';
 import animationData from './AnimationData/dice_animation.json';
@@ -8,9 +8,11 @@ import Button from '../../Button';
 interface DiceProps {
   firstColor: string | undefined,
   secondColor: string | undefined,
+  isMyTurn: boolean,
+  onDiceReleased: (diceValue: number) => void,
 }
 
-export const Dice: React.FC<DiceProps> = ({ firstColor, secondColor, ...props }) => {
+export const Dice: React.FC<DiceProps> = ({ isMyTurn, onDiceReleased, firstColor, secondColor, ...props }) => {
 
   const [segment, setSegment] = useState<[number, number]>([50,160]);
   const [isReleased, setReleased] = useState<boolean>(false);
@@ -26,8 +28,10 @@ export const Dice: React.FC<DiceProps> = ({ firstColor, secondColor, ...props })
       setTimeout(() => {
         setSegment([50, 160]);
         setReleased(true);
-        setDiceValue(Math.floor(Math.random() * 12) + 1);
+        let value = Math.floor(Math.random() * 12) + 1
+        setDiceValue(value);
         setLoading(false);
+        onDiceReleased(value);
       },3000);
     }
   }
@@ -57,9 +61,8 @@ export const Dice: React.FC<DiceProps> = ({ firstColor, secondColor, ...props })
             <p className="dice_value">{diceValue}</p>
           </div>
         }
-        
           <div style={{justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
-            <Button onClick={generateDiceValue} loading={isLoading}>Lançar dados</Button>
+            <Button onClick={generateDiceValue} loading={isLoading} disabled={!isMyTurn}  style={{opacity: !isMyTurn? 0.5 : 1}}>{isMyTurn? "Lançar dados" : "Aguarde sua vez"}</Button>
           </div>
       </div>
     </DiceCF>

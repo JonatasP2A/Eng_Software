@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 interface DiceFCProps {
-  firstColor: string | undefined,
-  secondColor: string | undefined,
+    firstColor: string | undefined,
+    secondColor: string | undefined,
 }
 
 export const DiceCF = styled.div<DiceFCProps>`
@@ -47,20 +47,22 @@ export const DiceCF = styled.div<DiceFCProps>`
         transition: opacity 1s ease-in-out;
         -moz-transition: opacity 1s ease-in-out;
         -webkit-transition: opacity 1s ease-in-out;
+        visibility: hidden;
 
-        transition-delay: 0.5s;
-        transition-property: opacity;
+        transition-delay: 0.5s, 0.5s;
+        transition-property: opacity, visibility;
     }
 
     &:hover .play_dice{
       opacity: 1.0;
+      visibility: visible;
       transition: opacity .55s ease-in-out;
       -moz-transition: opacity .55s ease-in-out;
       -webkit-transition: opacity .55s ease-in-out;
     }
 
     .dice_value{
-        font-size: 200px;
+        font-size: 190px;
         color: white;
         font-family: 'Courier New', Courier, monospace;
         font-weight: bold;

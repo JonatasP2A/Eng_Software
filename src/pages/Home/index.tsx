@@ -14,13 +14,14 @@ const Home: React.FC = () => {
     addUsers(currentUser, opponentsNumber);
     setModalVisible(false);
   }
-
+//TODO: Conferir esse Zindex pq tem alguém passando na frente.
+//Obs: Coloquei uma props no Dice para controlar a ativação do dado.
   return (
     <HomeCF>
       {isModalVisible ? <GetPlayersModal visible={isModalVisible} onReceivedUsers={onReceivedUsers} /> :
         <>
-          <Navbar />
-          {/* <div className="table">
+          <Navbar onDiceReleased={(value) => console.log("Jogou o dado e tirou: ", value)}/>
+          <div className="table">
             <div className="board">
               <div className="center">
                 <div className="community-chest-deck">
@@ -199,7 +200,7 @@ const Home: React.FC = () => {
                 <Place backgroundColor="dark-blue" name="Boardwalk" price={400} />
               </div>
             </div> 
-          </div>*/}
+          </div>
         </>
       }
     </HomeCF>

@@ -5,8 +5,11 @@ import logo from '../../assets/images/logo.png';
 import { UsersInfos } from './UsersInfos';
 import { CashInfo } from './CashInfo';
 import { Dice } from './Dice';
+interface NavbarProps {
+  onDiceReleased: (diceValue: number) => void;
+}
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC<NavbarProps> = ({onDiceReleased}) => {
 
   //Estou pegando o contexto direto no componente pq seriam muitas informações para passar por props.
   //Isso pode ser alterado no futuro se preferirem
@@ -18,7 +21,7 @@ const Navbar: React.FC = () => {
           <img src={logo} alt="Monopoly Logo" style={{ height: '60px'}} />
         </div>
         <div className="infos">
-          <Dice firstColor={getCurrentUser()?.color.firstColor} secondColor={getCurrentUser()?.color.secondColor}/>
+          <Dice isMyTurn={true} onDiceReleased={onDiceReleased} firstColor={getCurrentUser()?.color.firstColor} secondColor={getCurrentUser()?.color.secondColor}/>
           <UsersInfos currentUser={getCurrentUser()} opponents={getOpponents()} firstColor={getCurrentUser()?.color.firstColor} secondColor={getCurrentUser()?.color.secondColor}/>
           <CashInfo cash={getCurrentUser()?.cash}/>
         </div>
