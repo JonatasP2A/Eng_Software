@@ -13,7 +13,7 @@ const Railroad: React.FC<RailroadProps> = ({ name, price, longName }) => {
       <div className="container">
         <div className={`name ${longName ? longName : ''}`}>{name}</div>
         <i className="drawing fa fa-subway"></i>
-        <div className="price">Price ${price}</div>
+        <div className="price">Preço R$: {price}</div>
       </div>
     </div>
   );

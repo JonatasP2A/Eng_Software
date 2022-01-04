@@ -4,9 +4,9 @@ const CommunityChest = () => {
   return (
     <div className="space community-chest">
       <div className="container">
-        <div className="name">Community Chest</div>
+        <div className="name">Sorte Revés</div>
         <i className="drawing fa fa-cube"></i>
-        <div className="instructions">Follow instructions on top card</div>
+        <div className="instructions">Siga as instruções da carta</div>
       </div>
     </div>
   );

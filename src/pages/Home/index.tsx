@@ -7,30 +7,30 @@ import '../../App.css';
 
 const Home: React.FC = () => {
 
-  const [isModalVisible, setModalVisible] = useState(true);
+  const [isModalVisible, setModalVisible] = useState(false);
   const { addUsers } = useUsers();
 
   const onReceivedUsers = (currentUser: User, opponentsNumber: number) => {
     addUsers(currentUser, opponentsNumber);
     setModalVisible(false);
   }
-//TODO: Conferir esse Zindex pq tem alguém passando na frente.
-//Obs: Coloquei uma props no Dice para controlar a ativação do dado.
+  //TODO: Conferir esse Zindex pq tem alguém passando na frente.
+  //Obs: Coloquei uma props no Dice para controlar a ativação do dado.
   return (
     <HomeCF>
       {isModalVisible ? <GetPlayersModal visible={isModalVisible} onReceivedUsers={onReceivedUsers} /> :
         <>
-          <Navbar onDiceReleased={(value) => console.log("Jogou o dado e tirou: ", value)}/>
+          <Navbar onDiceReleased={(value) => console.log("Jogou o dado e tirou: ", value)} />
           <div className="table">
             <div className="board">
               <div className="center">
                 <div className="community-chest-deck">
-                  <h2 className="label">Community Chest</h2>
+                  <h2 className="label">Patrimônio</h2>
                   <div className="deck"></div>
                 </div>
                 <h1 className="title">MONOPOLY</h1>
                 <div className="chance-deck">
-                  <h2 className="label">Chance</h2>
+                  <h2 className="label">Sorte Revés</h2>
                   <div className="deck"></div>
                 </div>
               </div>
@@ -38,9 +38,12 @@ const Home: React.FC = () => {
               <div className="space corner go">
                 <div className="container">
                   <div className="instructions">
-                    Collect $200.00 salary as you pass
+                    Receba R$: 200,00 arregos.
                   </div>
-                  <div className="go-word">go</div>
+                  <div className="go-word">Início</div>
+                  <div className="instructions">
+                    Quando passar
+                  </div>
                 </div>
                 <div className="arrow fa fa-long-arrow-left"></div>
               </div>
@@ -48,135 +51,135 @@ const Home: React.FC = () => {
               <div className="row horizontal-row bottom-row">
                 <Place
                   backgroundColor="light-blue"
-                  name="Connecticut Avenue"
-                  price={120}
+                  name="Ingá"
+                  price={200}
                 />
+
+                <Tax type="income" name="Custos de campanha" instructions="PREÇO R$: 300" />
+
+                <CommunityChest />
 
                 <Place
                   backgroundColor="light-blue"
-                  name="Vermont Avenue"
-                  price={100}
+                  name="Icaraí"
+                  price={250}
                 />
-
-                <Chance />
-
-                <Place
-                  backgroundColor="light-blue"
-                  name="Oriental Avenue"
-                  price={100}
-                />
-
-                <Railroad name="Reading Railroad" price={200} />
-
-                <Tax type="income" name="Income Tax" instructions="Pay 10% or $200" />
 
                 <Place
                   backgroundColor="dark-purple"
-                  name="Baltic Avenue"
-                  price={50}
+                  name="Caramujo"
+                  price={100}
+                />
+
+                <Tax type="income" name="Sinal de TV à gato" instructions="PREÇO R$: 150" />
+
+                <Place
+                  backgroundColor="dark-purple"
+                  name="Niterói (Centro)"
+                  price={180}
                 />
 
                 <CommunityChest />
 
                 <Place
                   backgroundColor="dark-purple"
-                  name="Mediter-ranean Avenue"
-                  price={50}
+                  name="FONSECA"
+                  price={160}
                   threeLineName
                 />
               </div>
 
               <div className="space corner jail">
-                <div className="just">Just</div>
+                <div className="just">Visita</div>
                 <div className="drawing">
                   <div className="container">
-                    <div className="name">In</div>
                     <div className="window">
                       <div className="bar"></div>
                       <div className="bar"></div>
                       <div className="bar"></div>
                       <i className="person fa fa-frown-o"></i>
                     </div>
-                    <div className="name">Jail</div>
+                    <div className="name">Bangu I</div>
                   </div>
                 </div>
-                <div className="visiting">Visiting</div>
+                <div className="visiting">Íntima</div>
               </div>
 
               <div className="row vertical-row left-row">
-                <Place backgroundColor="orange" name="New York Avenue" price={200} />
-                <Place backgroundColor="orange" name="Tennessee Avenue" price={180} />
+                <Place backgroundColor="orange" name="Laranjeiras" price={200} aditionalClasses='uff-large' />
+                <Place backgroundColor="orange" name="Flamengo" price={180} />
 
                 <CommunityChest />
 
-                <Place backgroundColor="orange" name="St. James Avenue" price={180} />
+                <Place backgroundColor="orange" name="Botafogo" price={230} />
 
-                <Railroad name="Pennsylvania Railroad" price={200} longName />
+                <Railroad name="Botijão de gás" price={100} longName />
 
-                <Place backgroundColor="purple" name="Virginia Avenue" price={160} />
-                <Place backgroundColor="purple" name="States Avenue" price={140} />
+                <Place backgroundColor="purple" name="UFF Valonguinho" aditionalClasses='uff-large' price={180} />
+
+                <Place backgroundColor="purple" name="UFF Gragoatá" price={250} />
 
                 <div className="space utility electric-company">
                   <div className="container">
-                    <div className="name">Electric Company</div>
+                    <div className="name">Máquinas de caça-níquel</div>
                     <i className="drawing fa fa-lightbulb-o"></i>
-                    <div className="price">Price $150</div>
+                    <div className="price">Preço $200</div>
                   </div>
                 </div>
 
                 <Place
                   backgroundColor="purple"
-                  name="St. Charles Place"
-                  price={140}
+                  name="UFF Praia Vermelha"
+                  price={330}
                 />
               </div>
 
               <div className="space corner free-parking">
                 <div className="container">
-                  <div className="name">Free</div>
+                  <div className="name">Pagode</div>
                   <i className="drawing fa fa-car"></i>
-                  <div className="name">Parking</div>
+                  <div className="name">Cerveja 🍺</div>
                 </div>
               </div>
 
               <div className="row horizontal-row top-row">
-                <Place backgroundColor="red" name="Kentucky Avenue" price={220} />
+                <Place backgroundColor="red" name="Jardim Botânico" price={250} />
 
-                <Chance />
+                <CommunityChest />
 
-                <Place backgroundColor="red" name="Indiana Avenue" price={220} />
-                <Place backgroundColor="red" name="Illinois Avenue" price={200} />
+                <Place backgroundColor="red" name="Gávea" price={200} />
+                <Place backgroundColor="red" name="Barra da Tijuca" price={300} />
 
-                <Railroad name="B & O Railroad" price={200} />
+                <Railroad name="Moto Taxi" price={200} />
 
-                <Place backgroundColor="yellow" name="Atlantic Avenue" price={260} />
-                <Place backgroundColor="yellow" name="Ventnor Avenue" price={260} />
+                <Place backgroundColor="yellow" name="Leblon" price={350} />
+                <Place backgroundColor="yellow" name="Copacabana" price={300} aditionalClasses='uff-large'/>
 
-                <div className="space utility waterworks">
+                <div className="space utility waterworks fix-margin">
                   <div className="container">
-                    <div className="name">Waterworks</div>
+                    <div className="name">Transporte Alternativo</div>
                     <i className="drawing fa fa-tint"></i>
-                    <div className="price">Price $120</div>
+                    <div className="price">Preço $120</div>
                   </div>
                 </div>
 
-                <Place backgroundColor="yellow" name="Marvin Avenue" price={280} />
+                <Place backgroundColor="yellow" name="Ipanema" price={280} />
               </div>
 
               <div className="space corner go-to-jail">
                 <div className="container">
-                  <div className="name">Go To</div>
+                  <div className="name">Vá para</div>
                   <i className="drawing fa fa-gavel"></i>
-                  <div className="name">Jail</div>
+                  <div className="name">Bangu I</div>
                 </div>
               </div>
 
               <div className="row vertical-row right-row">
-                <Place backgroundColor="green" name="Pacific Avenue" price={300} />
+                <Place backgroundColor="green" name="Salgueiro" price={380} />
                 <Place
                   backgroundColor="green"
-                  name="North Carolina Avenue"
-                  price={300}
+                  name="Jardim Catarina"
+                  price={500}
                   threeLineName
                 />
 
@@ -184,22 +187,28 @@ const Home: React.FC = () => {
 
                 <Place
                   backgroundColor="green"
-                  name="Pennsylvania Avenue"
+                  name="Porto da Pedra"
                   price={320}
                   longName
                 />
 
-                <Railroad name="Short Line" price={200} />
+                <Railroad name="Milícia Local" price={200} />
 
-                <Chance />
+                <CommunityChest />
 
-                <Place backgroundColor="dark-blue" name="Park Place" price={350} />
+                <Place backgroundColor="dark-blue" name="Morro do Katiço" price={350} />
 
-                <Tax type="luxury" name="Luxury Tax" instructions="Pay $75.00" />
+                <div className="space utility electric-company">
+                  <div className="container">
+                    <div className="name">Propina</div>
+                    <i className="drawing fa fa-lightbulb-o"></i>
+                    <div className="price">Preço $200</div>
+                  </div>
+                </div>
 
-                <Place backgroundColor="dark-blue" name="Boardwalk" price={400} />
+                <Place backgroundColor="dark-blue" name="Reta Velha" price={200} />
               </div>
-            </div> 
+            </div>
           </div>
         </>
       }
