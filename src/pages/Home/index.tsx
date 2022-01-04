@@ -1,27 +1,74 @@
-import React, { useState } from 'react';
-import GetPlayersModal from '../../components/PlayersModal';
-import { Place, Chance, Railroad, CommunityChest, Tax, Navbar } from '../../components';
-import { User, useUsers } from '../../hooks/user';
-import { HomeCF } from './styles';
-import '../../App.css';
+import React, { useCallback, useEffect, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
+import GetPlayersModal from "../../components/PlayersModal";
+import {
+  Place,
+  Chance,
+  Railroad,
+  CommunityChest,
+  Tax,
+  Navbar,
+} from "../../components";
+import { User, useUsers } from "../../hooks/user";
+import { HomeCF } from "./styles";
+import "../../App.css";
 
 const Home: React.FC = () => {
-
   const [isModalVisible, setModalVisible] = useState(true);
   const { addUsers } = useUsers();
+  const [value, setValue] = useState(0);
+  const controls = useAnimation();
 
   const onReceivedUsers = (currentUser: User, opponentsNumber: number) => {
     addUsers(currentUser, opponentsNumber);
     setModalVisible(false);
-  }
-//TODO: Conferir esse Zindex pq tem alguém passando na frente.
-//Obs: Coloquei uma props no Dice para controlar a ativação do dado.
+  };
+  //TODO: Conferir esse Zindex pq tem alguém passando na frente.
+  //Obs: Coloquei uma props no Dice para controlar a ativação do dado.
+
+  const getRotation = useCallback(() => {
+    if (value <= 11) {
+      return 0;
+    } else if (value <= 21) {
+      return -90;
+    } else if (value <= 31) {
+      return -180;
+    } else {
+      return -270;
+    }
+  }, [value]);
+
+  useEffect(() => {
+    controls.start({
+      rotate: getRotation(),
+    });
+  }, [controls, getRotation]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setValue(12);
+    }, 5000);
+
+    setTimeout(() => {
+      setValue(13);
+    }, 10000);
+  }, []);
+
   return (
     <HomeCF>
-      {isModalVisible ? <GetPlayersModal visible={isModalVisible} onReceivedUsers={onReceivedUsers} /> :
+      {isModalVisible ? (
+        <GetPlayersModal
+          visible={isModalVisible}
+          onReceivedUsers={onReceivedUsers}
+        />
+      ) : (
         <>
-          <Navbar onDiceReleased={(value) => console.log("Jogou o dado e tirou: ", value)}/>
-          <div className="table">
+          <Navbar
+            onDiceReleased={(value) =>
+              console.log("Jogou o dado e tirou: ", value)
+            }
+          />
+          <motion.div className="table" animate={controls}>
             <div className="board">
               <div className="center">
                 <div className="community-chest-deck">
@@ -68,7 +115,11 @@ const Home: React.FC = () => {
 
                 <Railroad name="Reading Railroad" price={200} />
 
-                <Tax type="income" name="Income Tax" instructions="Pay 10% or $200" />
+                <Tax
+                  type="income"
+                  name="Income Tax"
+                  instructions="Pay 10% or $200"
+                />
 
                 <Place
                   backgroundColor="dark-purple"
@@ -104,17 +155,37 @@ const Home: React.FC = () => {
               </div>
 
               <div className="row vertical-row left-row">
-                <Place backgroundColor="orange" name="New York Avenue" price={200} />
-                <Place backgroundColor="orange" name="Tennessee Avenue" price={180} />
+                <Place
+                  backgroundColor="orange"
+                  name="New York Avenue"
+                  price={200}
+                />
+                <Place
+                  backgroundColor="orange"
+                  name="Tennessee Avenue"
+                  price={180}
+                />
 
                 <CommunityChest />
 
-                <Place backgroundColor="orange" name="St. James Avenue" price={180} />
+                <Place
+                  backgroundColor="orange"
+                  name="St. James Avenue"
+                  price={180}
+                />
 
                 <Railroad name="Pennsylvania Railroad" price={200} longName />
 
-                <Place backgroundColor="purple" name="Virginia Avenue" price={160} />
-                <Place backgroundColor="purple" name="States Avenue" price={140} />
+                <Place
+                  backgroundColor="purple"
+                  name="Virginia Avenue"
+                  price={160}
+                />
+                <Place
+                  backgroundColor="purple"
+                  name="States Avenue"
+                  price={140}
+                />
 
                 <div className="space utility electric-company">
                   <div className="container">
@@ -140,17 +211,37 @@ const Home: React.FC = () => {
               </div>
 
               <div className="row horizontal-row top-row">
-                <Place backgroundColor="red" name="Kentucky Avenue" price={220} />
+                <Place
+                  backgroundColor="red"
+                  name="Kentucky Avenue"
+                  price={220}
+                />
 
                 <Chance />
 
-                <Place backgroundColor="red" name="Indiana Avenue" price={220} />
-                <Place backgroundColor="red" name="Illinois Avenue" price={200} />
+                <Place
+                  backgroundColor="red"
+                  name="Indiana Avenue"
+                  price={220}
+                />
+                <Place
+                  backgroundColor="red"
+                  name="Illinois Avenue"
+                  price={200}
+                />
 
                 <Railroad name="B & O Railroad" price={200} />
 
-                <Place backgroundColor="yellow" name="Atlantic Avenue" price={260} />
-                <Place backgroundColor="yellow" name="Ventnor Avenue" price={260} />
+                <Place
+                  backgroundColor="yellow"
+                  name="Atlantic Avenue"
+                  price={260}
+                />
+                <Place
+                  backgroundColor="yellow"
+                  name="Ventnor Avenue"
+                  price={260}
+                />
 
                 <div className="space utility waterworks">
                   <div className="container">
@@ -160,7 +251,11 @@ const Home: React.FC = () => {
                   </div>
                 </div>
 
-                <Place backgroundColor="yellow" name="Marvin Avenue" price={280} />
+                <Place
+                  backgroundColor="yellow"
+                  name="Marvin Avenue"
+                  price={280}
+                />
               </div>
 
               <div className="space corner go-to-jail">
@@ -172,7 +267,11 @@ const Home: React.FC = () => {
               </div>
 
               <div className="row vertical-row right-row">
-                <Place backgroundColor="green" name="Pacific Avenue" price={300} />
+                <Place
+                  backgroundColor="green"
+                  name="Pacific Avenue"
+                  price={300}
+                />
                 <Place
                   backgroundColor="green"
                   name="North Carolina Avenue"
@@ -193,19 +292,30 @@ const Home: React.FC = () => {
 
                 <Chance />
 
-                <Place backgroundColor="dark-blue" name="Park Place" price={350} />
+                <Place
+                  backgroundColor="dark-blue"
+                  name="Park Place"
+                  price={350}
+                />
 
-                <Tax type="luxury" name="Luxury Tax" instructions="Pay $75.00" />
+                <Tax
+                  type="luxury"
+                  name="Luxury Tax"
+                  instructions="Pay $75.00"
+                />
 
-                <Place backgroundColor="dark-blue" name="Boardwalk" price={400} />
+                <Place
+                  backgroundColor="dark-blue"
+                  name="Boardwalk"
+                  price={400}
+                />
               </div>
-            </div> 
-          </div>
+            </div>
+          </motion.div>
         </>
-      }
+      )}
     </HomeCF>
   );
-}
+};
 
 export default Home;
-

@@ -13,6 +13,7 @@
     "@types/styled-components": "^5.1.15",
     "@unform/core": "^2.1.0",
     "@unform/web": "^2.1.6",
+    "framer-motion": "4.1.17",
     "lottie-react": "^2.1.0",
     "polished": "^3.5.2",
     "react": "^17.0.2",
