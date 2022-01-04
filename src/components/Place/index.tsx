@@ -15,6 +15,7 @@ interface PlaceProps {
   price: number;
   threeLineName?: boolean;
   longName?: boolean;
+  aditionalClasses?: string;
 }
 
 const Place = ({
@@ -23,9 +24,10 @@ const Place = ({
   price,
   threeLineName,
   longName,
+  aditionalClasses,
 }: PlaceProps) => {
   return (
-    <div className="space property">
+    <div className={`space property ${aditionalClasses? aditionalClasses:""}`}>
       <div className="container">
         <div className={`color-bar ${backgroundColor}`}></div>
         <div
@@ -35,7 +37,7 @@ const Place = ({
         >
           {name}
         </div>
-        <div className="price">Price ${price}</div>
+        <div className="price">Preço R$: {price}</div>
       </div>
     </div>
   );

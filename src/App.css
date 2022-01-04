@@ -244,11 +244,11 @@ h1, h2, h3, h4, h5, h6 {
 }	
 
 .go .instructions {
-	padding: 0 30px;
+	padding: 6px 30px;
 }
 
 .go .go-word {
-	font-size: 60px;
+	font-size: 35px;
 	color: var(--red);
 }
 
@@ -307,8 +307,8 @@ h1, h2, h3, h4, h5, h6 {
 	justify-content: space-around;
 	align-items: center;
 	position: relative;
-	width: 55px;
-	height: 55px;
+	width: 40px;
+	height: 35px;
 	background: var(--board);
 	border: 2px solid var(--black);
 }
@@ -322,7 +322,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .jail .bar {
-	height: 55px;
+	height: 40px;
 	width: 2px;
 	background: var(--black);
 }
@@ -441,4 +441,12 @@ h1, h2, h3, h4, h5, h6 {
 .three-line-name {
 	position: relative;
 	top: 5px;
+}
+
+.uff-large {
+	font-size: 8px;
+}
+
+.fix-margin{
+	padding-left: 10px;
 }
