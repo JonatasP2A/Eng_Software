@@ -9,6 +9,7 @@ export const Container = styled.div<UsersInfosFCProps>`
   justify-content: center;
   align-items: center;
   display: flex;
+  z-index: 1;
 
   transition: transform 0.2s;
   &:hover {
@@ -50,7 +51,7 @@ export const Container = styled.div<UsersInfosFCProps>`
   .user_infos:hover .opponents_infos{
       display: initial;
       animation: fade-in 0.5s;
-      z-index: 999;
+      z-index: 1;
   }
 
   .user_infos:not(:hover) .opponents_infos.did-fade-in{

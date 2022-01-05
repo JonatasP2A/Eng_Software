@@ -16,6 +16,7 @@ export const NavbarCF = styled.div<NavbarProps>`
     justify-content: space-between;
     margin: 10px;
     border-radius: 10px;
+    z-index: 1;
     
     //TOdo: Não sei se curti essa borda e essa nav flutuante. Checar com o pessoal.
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);

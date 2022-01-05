@@ -5,19 +5,20 @@ import { SiCashapp } from "react-icons/si";
 import { User } from "../../../types/user";
 
 interface UsersInfosProps {
-  currentUser: User | undefined;
-  opponents: User[];
+  users: User[];
+  userTurn: User | undefined;
   firstColor: string | undefined;
   secondColor: string | undefined;
 }
 
 export const UsersInfos: React.FC<UsersInfosProps> = ({
-  currentUser,
-  opponents,
+  users,
+  userTurn,
   firstColor,
   secondColor,
   ...rest
 }) => {
+
   return (
     <Container firstColor={firstColor} secondColor={secondColor}>
       <div className="user_infos">
@@ -26,9 +27,9 @@ export const UsersInfos: React.FC<UsersInfosProps> = ({
             style={{ height: 40, width: 40, color: "#fff", marginRight: 5 }}
           />
         </div>
-        <p className="title">{currentUser?.name}</p>
+        <p className="title">{userTurn?.name}</p>
         <div className="opponents_infos">
-          {opponents.map((opponent, index) => (
+          {users.map((user, index) => (
             <div key={index}>
               <div className="item-info">
                 <div>
@@ -41,7 +42,7 @@ export const UsersInfos: React.FC<UsersInfosProps> = ({
                     }}
                   />
                 </div>
-                <p className="item-title">{opponent.name}</p>
+                <p className="item-title">{user.name}</p>
                 <div>
                   <SiCashapp
                     style={{
@@ -54,7 +55,7 @@ export const UsersInfos: React.FC<UsersInfosProps> = ({
                   />
                 </div>
                 <p className="item-title">
-                  {opponent.cash.toLocaleString("pt-br", {
+                  {user.cash.toLocaleString("pt-br", {
                     minimumFractionDigits: 2,
                   })}
                 </p>
