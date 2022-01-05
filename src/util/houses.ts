@@ -5,6 +5,7 @@ export const houses = [
     price: 200,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 1,
@@ -12,6 +13,7 @@ export const houses = [
     price: 200,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 2,
@@ -19,6 +21,7 @@ export const houses = [
     price: 0,
     sort: true,
     multiplier: false,
+    jail: false,
   },
   {
     id: 3,
@@ -26,6 +29,7 @@ export const houses = [
     price: 180,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 4,
@@ -33,6 +37,7 @@ export const houses = [
     price: 150,
     sort: false,
     multiplier: true,
+    jail: false,
   },
   {
     id: 5,
@@ -40,6 +45,7 @@ export const houses = [
     price: 100,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 6,
@@ -47,6 +53,7 @@ export const houses = [
     price: 250,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 7,
@@ -54,6 +61,7 @@ export const houses = [
     price: 0,
     sort: true,
     multiplier: false,
+    jail: false,
   },
   {
     id: 8,
@@ -61,6 +69,7 @@ export const houses = [
     price: 300,
     sort: false,
     multiplier: true,
+    jail: false,
   },
   {
     id: 9,
@@ -68,6 +77,7 @@ export const houses = [
     price: 200,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 10,
@@ -75,6 +85,7 @@ export const houses = [
     price: 0,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 11,
@@ -82,6 +93,7 @@ export const houses = [
     price: 330,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 12,
@@ -89,6 +101,7 @@ export const houses = [
     price: 200,
     sort: false,
     multiplier: true,
+    jail: false,
   },
   {
     id: 13,
@@ -96,6 +109,7 @@ export const houses = [
     price: 250,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 14,
@@ -103,6 +117,7 @@ export const houses = [
     price: 180,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 15,
@@ -110,6 +125,7 @@ export const houses = [
     price: 100,
     sort: false,
     multiplier: true,
+    jail: false,
   },
   {
     id: 16,
@@ -117,6 +133,7 @@ export const houses = [
     price: 230,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 17,
@@ -124,6 +141,7 @@ export const houses = [
     price: 0,
     sort: true,
     multiplier: false,
+    jail: false,
   },
   {
     id: 18,
@@ -131,6 +149,7 @@ export const houses = [
     price: 180,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 19,
@@ -138,6 +157,7 @@ export const houses = [
     price: 200,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 20,
@@ -145,6 +165,7 @@ export const houses = [
     price: 0,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 21,
@@ -152,6 +173,7 @@ export const houses = [
     price: 250,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 22,
@@ -159,6 +181,7 @@ export const houses = [
     price: 0,
     sort: true,
     multiplier: false,
+    jail: false,
   },
   {
     id: 23,
@@ -166,6 +189,7 @@ export const houses = [
     price: 200,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 24,
@@ -173,6 +197,7 @@ export const houses = [
     price: 300,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 25,
@@ -180,6 +205,7 @@ export const houses = [
     price: 50,
     sort: false,
     multiplier: true,
+    jail: false,
   },
   {
     id: 26,
@@ -187,6 +213,7 @@ export const houses = [
     price: 350,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 27,
@@ -194,6 +221,7 @@ export const houses = [
     price: 300,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 28,
@@ -201,6 +229,7 @@ export const houses = [
     price: 120,
     sort: false,
     multiplier: true,
+    jail: false,
   },
   {
     id: 29,
@@ -208,6 +237,7 @@ export const houses = [
     price: 280,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 30,
@@ -223,6 +253,7 @@ export const houses = [
     price: 380,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 32,
@@ -230,6 +261,7 @@ export const houses = [
     price: 500,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 33,
@@ -237,6 +269,7 @@ export const houses = [
     price: 0,
     sort: true,
     multiplier: false,
+    jail: false,
   },
   {
     id: 34,
@@ -244,6 +277,7 @@ export const houses = [
     price: 320,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 35,
@@ -251,6 +285,7 @@ export const houses = [
     price: 200,
     sort: false,
     multiplier: true,
+    jail: false,
   },
   {
     id: 36,
@@ -258,6 +293,7 @@ export const houses = [
     price: 0,
     sort: true,
     multiplier: false,
+    jail: false,
   },
   {
     id: 37,
@@ -265,6 +301,7 @@ export const houses = [
     price: 350,
     sort: false,
     multiplier: false,
+    jail: false,
   },
   {
     id: 38,
@@ -272,6 +309,7 @@ export const houses = [
     price: 200,
     sort: false,
     multiplier: true,
+    jail: false,
   },
   {
     id: 39,
@@ -279,5 +317,6 @@ export const houses = [
     price: 200,
     sort: false,
     multiplier: false,
+    jail: false,
   },
 ];
