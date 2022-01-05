@@ -1,14 +1,9 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import GetPlayersModal from "../../components/PlayersModal";
-import {
-  Place,
-  Railroad,
-  CommunityChest,
-  Tax,
-  Navbar,
-} from "../../components";
-import { User, useUsers } from "../../hooks/user";
+import { Place, Railroad, CommunityChest, Tax, Navbar } from "../../components";
+import { useUsers } from "../../hooks/user";
+import { User } from "../../types/user";
 import { HomeCF } from "./styles";
 import "../../App.css";
 
@@ -37,21 +32,21 @@ const Home: React.FC = () => {
     }
   }, [value]);
 
-  useEffect(() => {
-    controls.start({
-      rotate: getRotation(),
-    });
-  }, [controls, getRotation]);
+  // useEffect(() => {
+  //   controls.start({
+  //     rotate: getRotation(),
+  //   });
+  // }, [controls, getRotation]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setValue(12);
-    }, 5000);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setValue(15);
+  //   }, 5000);
 
-    setTimeout(() => {
-      setValue(13);
-    }, 10000);
-  }, []);
+  //   setTimeout(() => {
+  //     setValue(33);
+  //   }, 10000);
+  // }, []);
 
   return (
     <HomeCF>
@@ -83,33 +78,25 @@ const Home: React.FC = () => {
 
               <div className="space corner go">
                 <div className="container">
-                  <div className="instructions">
-                    Receba R$: 200,00 arregos.
-                  </div>
+                  <div className="instructions">Receba R$: 200,00 arregos.</div>
                   <div className="go-word">Início</div>
-                  <div className="instructions">
-                    Quando passar
-                  </div>
+                  <div className="instructions">Quando passar</div>
                 </div>
                 <div className="arrow fa fa-long-arrow-left"></div>
               </div>
 
               <div className="row horizontal-row bottom-row">
-                <Place
-                  backgroundColor="light-blue"
-                  name="Ingá"
-                  price={200}
-                />
+                <Place backgroundColor="light-blue" name="Ingá" price={200} />
 
-                <Tax type="income" name="Custos de campanha" instructions="PREÇO R$: 300" />
+                <Tax
+                  type="income"
+                  name="Custos de campanha"
+                  instructions="PREÇO R$: 300"
+                />
 
                 <CommunityChest />
 
-                <Place
-                  backgroundColor="light-blue"
-                  name="Icaraí"
-                  price={250}
-                />
+                <Place backgroundColor="light-blue" name="Icaraí" price={250} />
 
                 <Place
                   backgroundColor="dark-purple"
@@ -117,7 +104,11 @@ const Home: React.FC = () => {
                   price={100}
                 />
 
-                <Tax type="income" name="Sinal de TV à gato" instructions="PREÇO R$: 150" />
+                <Tax
+                  type="income"
+                  name="Sinal de TV à gato"
+                  instructions="PREÇO R$: 150"
+                />
 
                 <Place
                   backgroundColor="dark-purple"
@@ -152,7 +143,12 @@ const Home: React.FC = () => {
               </div>
 
               <div className="row vertical-row left-row">
-                <Place backgroundColor="orange" name="Laranjeiras" price={200} aditionalClasses='uff-large' />
+                <Place
+                  backgroundColor="orange"
+                  name="Laranjeiras"
+                  price={200}
+                  aditionalClasses="uff-large"
+                />
                 <Place backgroundColor="orange" name="Flamengo" price={180} />
 
                 <CommunityChest />
@@ -161,9 +157,18 @@ const Home: React.FC = () => {
 
                 <Railroad name="Botijão de gás" price={100} longName />
 
-                <Place backgroundColor="purple" name="UFF Valonguinho" aditionalClasses='uff-large' price={180} />
+                <Place
+                  backgroundColor="purple"
+                  name="UFF Valonguinho"
+                  aditionalClasses="uff-large"
+                  price={180}
+                />
 
-                <Place backgroundColor="purple" name="UFF Gragoatá" price={250} />
+                <Place
+                  backgroundColor="purple"
+                  name="UFF Gragoatá"
+                  price={250}
+                />
 
                 <div className="space utility electric-company">
                   <div className="container">
@@ -189,17 +194,30 @@ const Home: React.FC = () => {
               </div>
 
               <div className="row horizontal-row top-row">
-                <Place backgroundColor="red" name="Jardim Botânico" price={250} />
+                <Place
+                  backgroundColor="red"
+                  name="Jardim Botânico"
+                  price={250}
+                />
 
                 <CommunityChest />
 
                 <Place backgroundColor="red" name="Gávea" price={200} />
-                <Place backgroundColor="red" name="Barra da Tijuca" price={300} />
+                <Place
+                  backgroundColor="red"
+                  name="Barra da Tijuca"
+                  price={300}
+                />
 
-                <Railroad name="Moto Taxi" price={200} />
+                <Railroad name="Moto Taxi" price={50} />
 
                 <Place backgroundColor="yellow" name="Leblon" price={350} />
-                <Place backgroundColor="yellow" name="Copacabana" price={300} aditionalClasses='uff-large' />
+                <Place
+                  backgroundColor="yellow"
+                  name="Copacabana"
+                  price={300}
+                  aditionalClasses="uff-large"
+                />
 
                 <div className="space utility waterworks fix-margin">
                   <div className="container">
@@ -242,7 +260,11 @@ const Home: React.FC = () => {
 
                 <CommunityChest />
 
-                <Place backgroundColor="dark-blue" name="Morro do Katiço" price={350} />
+                <Place
+                  backgroundColor="dark-blue"
+                  name="Morro do Katiço"
+                  price={350}
+                />
 
                 <div className="space utility electric-company">
                   <div className="container">
@@ -252,8 +274,11 @@ const Home: React.FC = () => {
                   </div>
                 </div>
 
-                <Place backgroundColor="dark-blue" name="Reta Velha" price={200} /> 
-
+                <Place
+                  backgroundColor="dark-blue"
+                  name="Reta Velha"
+                  price={200}
+                />
               </div>
             </div>
           </motion.div>
