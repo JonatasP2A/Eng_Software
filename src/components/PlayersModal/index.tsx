@@ -21,6 +21,8 @@ const playerObj = {
   color: RED_COLOR,
   cash: 2000,
   type: USER_TYPES.CURRENT_USER,
+  houseNumber: 0,
+  houses: [],
 };
 
 const inputError = {

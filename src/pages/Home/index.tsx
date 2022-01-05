@@ -9,7 +9,7 @@ import "../../App.css";
 
 const Home: React.FC = () => {
   const [isModalVisible, setModalVisible] = useState(true);
-  const { addUsers, startGame } = useUsers();
+  const { addUsers, userTurn, startGame } = useUsers();
   const [value, setValue] = useState(0);
   const controls = useAnimation();
 
@@ -20,29 +20,45 @@ const Home: React.FC = () => {
   //TODO: Conferir esse Zindex pq tem alguém passando na frente.
   //Obs: Coloquei uma props no Dice para controlar a ativação do dado.
 
-  const getRotation = useCallback(() => {
+  const rotation = useCallback(() => {
     if (value <= 11) {
-      return 0;
+      controls.start({
+        rotate: 0,
+      });
+      return;
     } else if (value <= 21) {
-      return -90;
+      controls.start({
+        rotate: -90,
+      });
+      return;
     } else if (value <= 31) {
-      return -180;
+      controls.start({
+        rotate: -180,
+      });
+      return;
     } else {
-      return -270;
+      controls.start({
+        rotate: -270,
+      });
+      return;
     }
-  }, [value]);
+  }, [value, controls]);
 
   useEffect(() => {
-    controls.start({
-      rotate: getRotation(),
-    });
-  }, [controls, getRotation]);
+    if (userTurn) {
+      setValue(userTurn.houseNumber);
+    }
+  }, [userTurn]);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setValue(15);
-  //   }, 5000);
+  useEffect(() => {
+    rotation();
+  }, [rotation]);
 
+  useEffect(() => {
+    if (!isModalVisible) {
+      startGame();
+    }
+  }, [isModalVisible, startGame]);
 
   return (
     <HomeCF>
@@ -53,11 +69,7 @@ const Home: React.FC = () => {
         />
       ) : (
         <>
-          <Navbar
-            onDiceReleased={(value) =>
-              console.log("Jogou o dado e tirou: ", value)
-            }
-          />
+          <Navbar />
           <motion.div className="table" animate={controls}>
             <div className="board">
               <div className="center">
