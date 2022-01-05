@@ -13,17 +13,17 @@ const Navbar: React.FC<NavbarProps> = ({onDiceReleased}) => {
 
   //Estou pegando o contexto direto no componente pq seriam muitas informações para passar por props.
   //Isso pode ser alterado no futuro se preferirem
-  const { getCurrentUser, getOpponents } = useUsers();
+  const { users, userTurn } = useUsers();
 
   return(
-      <NavbarCF firstColor={getCurrentUser()?.color.firstColor} secondColor={getCurrentUser()?.color.secondColor} >
+      <NavbarCF firstColor={userTurn?.color.firstColor} secondColor={userTurn?.color.secondColor} >
         <div>
           <img src={logo} alt="Monopoly Logo" style={{ height: '60px'}} />
         </div>
         <div className="infos">
-          <Dice isMyTurn={true} onDiceReleased={onDiceReleased} firstColor={getCurrentUser()?.color.firstColor} secondColor={getCurrentUser()?.color.secondColor}/>
-          <UsersInfos currentUser={getCurrentUser()} opponents={getOpponents()} firstColor={getCurrentUser()?.color.firstColor} secondColor={getCurrentUser()?.color.secondColor}/>
-          <CashInfo cash={getCurrentUser()?.cash}/>
+          <Dice isMyTurn={true} onDiceReleased={onDiceReleased} firstColor={userTurn?.color.firstColor} secondColor={userTurn?.color.secondColor}/>
+          <UsersInfos users={users} userTurn={userTurn} firstColor={userTurn?.color.firstColor} secondColor={userTurn?.color.secondColor}/>
+          <CashInfo cash={userTurn?.cash}/>
         </div>
       </NavbarCF>
   );

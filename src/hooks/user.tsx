@@ -4,6 +4,7 @@ import { User } from "../types/user";
 
 interface IUserContextData {
   users: User[];
+  userTurn: User | undefined;
   addUsers: (playerUser: User, opponentsNumber: number) => void;
   removeUser: (id: number) => void;
   getUser: (id: number) => User | undefined;
@@ -81,6 +82,7 @@ const UsersProvider: React.FC = ({ children }) => {
     <UsersContext.Provider
       value={{
         users,
+        userTurn,
         addUsers,
         removeUser,
         getUser,

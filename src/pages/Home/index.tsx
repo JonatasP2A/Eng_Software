@@ -9,7 +9,7 @@ import "../../App.css";
 
 const Home: React.FC = () => {
   const [isModalVisible, setModalVisible] = useState(true);
-  const { addUsers } = useUsers();
+  const { addUsers, startGame } = useUsers();
   const [value, setValue] = useState(0);
   const controls = useAnimation();
 
@@ -32,21 +32,17 @@ const Home: React.FC = () => {
     }
   }, [value]);
 
-  // useEffect(() => {
-  //   controls.start({
-  //     rotate: getRotation(),
-  //   });
-  // }, [controls, getRotation]);
+  useEffect(() => {
+    controls.start({
+      rotate: getRotation(),
+    });
+  }, [controls, getRotation]);
 
   // useEffect(() => {
   //   setTimeout(() => {
   //     setValue(15);
   //   }, 5000);
 
-  //   setTimeout(() => {
-  //     setValue(33);
-  //   }, 10000);
-  // }, []);
 
   return (
     <HomeCF>
