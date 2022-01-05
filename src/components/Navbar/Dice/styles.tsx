@@ -11,6 +11,7 @@ export const DiceCF = styled.div<DiceFCProps>`
     flex-direction: row;
     align-items: center;
     margin-right: 20px;
+    z-index: 1;
 
     transition: transform 0.2s;
 
