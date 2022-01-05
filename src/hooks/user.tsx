@@ -1,9 +1,11 @@
 import React, { createContext, useState, useContext } from "react";
 import { USER_TYPES, COLORS, OPPONENTS } from "../constants";
 import { User } from "../types/user";
+import { houses } from "../util/houses";
 
 interface IUserContextData {
   users: User[];
+  userTurn: User | undefined;
   addUsers: (playerUser: User, opponentsNumber: number) => void;
   removeUser: (id: number) => void;
   getUser: (id: number) => User | undefined;
@@ -12,6 +14,7 @@ interface IUserContextData {
   getOpponents: () => User[];
   startGame: () => void;
   nextUserTurn: () => void;
+  jumpHouses: (value: number) => void;
 }
 
 export const UsersContext = createContext({} as IUserContextData);
@@ -77,10 +80,48 @@ const UsersProvider: React.FC = ({ children }) => {
     }
   };
 
+  const setCash = (oldHouse: number, newHouse: number) => {
+    let cash = 0;
+
+    if (newHouse > oldHouse && newHouse >= 0) {
+      cash += 200;
+    }
+
+    if (newHouse === 0) return cash;
+
+    const houseJumped = houses[newHouse];
+
+    if (houseJumped.multiplier) {
+      cash -= Math.abs(newHouse - oldHouse) * houseJumped.price;
+    }
+
+    return cash;
+  };
+
+  const jumpHouses = (value: number) => {
+    const player = users.find((user) => user.id === userTurn!.id);
+
+    if (player) {
+      const newHouseNumber = (player.houseNumber + value) % 40;
+
+      const actualizedPlayer = {
+        ...player,
+        houseNumber: newHouseNumber,
+        cash: setCash(player.houseNumber, newHouseNumber),
+      };
+
+      setUsers(
+        users.map((user) => (user.id === player.id ? actualizedPlayer : user))
+      );
+      setUserTurn(actualizedPlayer);
+    }
+  };
+
   return (
     <UsersContext.Provider
       value={{
         users,
+        userTurn,
         addUsers,
         removeUser,
         getUser,
@@ -89,6 +130,7 @@ const UsersProvider: React.FC = ({ children }) => {
         getOpponents,
         startGame,
         nextUserTurn,
+        jumpHouses,
       }}
     >
       {children}
