@@ -1,4 +1,4 @@
-import { BackgroundColors } from "../components/PlayersModal/Components/ColorSelector";
+import { BackgroundColors } from '../components/PlayersModal/Components/ColorSelector';
 
 export interface House {
   id: number;
