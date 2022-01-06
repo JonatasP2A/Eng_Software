@@ -1,11 +1,12 @@
-import React from 'react';
-import { UsersProvider } from './user';
+import React from "react";
+import { UsersProvider } from "./user";
+import { ToastProvider } from "./toast";
 
 const AppProvider: React.FC = ({ children }) => {
   return (
-    <UsersProvider>
-      {children}
-    </UsersProvider>
+    <ToastProvider>
+      <UsersProvider>{children}</UsersProvider>
+    </ToastProvider>
   );
 };
 
